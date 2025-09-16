@@ -16,15 +16,22 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
+import time
+
+
 def telemetry_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
+    telemetry_queue,
+    worker_ctrl: worker_controller.WorkerController,
     # Add other necessary worker arguments here
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    args...
+    connection: MAVLink connection object for receiving messages
+    telemetry_queue: Queue to send TelemetryData objects to Command worker
+     worker_ctrl: Worker controller for graceful shutdown
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,8 +54,35 @@ def telemetry_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (telemetry.Telemetry)
+    result, telemetry_obj = telemetry.Telemetry.create(connection, local_logger)
+
+    if not result or telemetry_obj is None:
+        local_logger.error("Failed to create Telemetry")
+        return
+
+    local_logger.info("Telemetry created successfully")
 
     # Main loop: do work.
+    while not worker_ctrl.is_exit_requested():
+        try:
+            # Get telemetry data (ATTITUDE + LOCAL_POSITION_NED)
+            telemetry_data = telemetry_obj.run()
+
+            if telemetry_data is not None:
+                # Send TelemetryData to Command worker
+                telemetry_queue.queue.put(telemetry_data)
+                local_logger.info(f"Sent TelemetryData to Command worker: {telemetry_data}")
+            else:
+                # Timeout occurred, restart and try again
+                local_logger.warning("Telemetry timeout - restarting collection")
+
+            time.sleep(0.1)
+
+        except Exception as e:
+            local_logger.error(f"Error in telemetry worker main loop: {e}")
+            time.sleep(0.1)
+
+    local_logger.info("Telemetry worker exiting gracefully")
 
 
 # =================================================================================================

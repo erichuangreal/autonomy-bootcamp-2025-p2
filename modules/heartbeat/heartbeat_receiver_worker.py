@@ -19,6 +19,7 @@ from ..common.modules.logger import logger
 import time
 import queue
 
+
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
     report_queue: queue.Queue,
