@@ -28,8 +28,9 @@ NUM_TRIALS = 10
 # Add your own constants here
 # No constants? I think.
 import time
+
 time.sleep(8)
-stop_flag = threading.Event() 
+stop_flag = threading.Event()
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -53,6 +54,7 @@ def stop() -> None:
     Stop the workers.
     """
     stop_flag.set()
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -97,14 +99,13 @@ def main() -> int:
 
     # Just set a timer to stop the worker after a while, since the worker infinite loops
     import time
+
     time.sleep(3)
-    
+
     threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS, stop).start()
-    
+
     heartbeat_sender_worker.heartbeat_sender_worker(
-        connection=connection,
-        heartbeat_period=HEARTBEAT_PERIOD,
-        stop_event=stop_flag
+        connection=connection, heartbeat_period=HEARTBEAT_PERIOD, stop_event=stop_flag
     )
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

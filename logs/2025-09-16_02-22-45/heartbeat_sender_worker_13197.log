@@ -1,5 +1,0 @@
-02:22:49: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 46] Logger initialized
-02:22:49: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 53] About to create HeartbeatSender instance
-02:22:49: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 62] HeartbeatSender created successfully
-02:22:49: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 66] Starting heartbeat sender worker
-02:22:59: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_sender_worker.py | heartbeat_sender_worker | 78] Heartbeat sender worker stopped

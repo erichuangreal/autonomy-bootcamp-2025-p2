@@ -16,15 +16,19 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
+import time
+import queue
+
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
-    # Add other necessary worker arguments here
+    report_queue: queue.Queue,
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    args...
+    connection: MAVLink connection object for receiving messages
+    report_queue: Queue to send status reports to main process
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,8 +51,19 @@ def heartbeat_receiver_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
+    result, heartbeat_rcv = heartbeat_receiver.HeartbeatReceiver.create(connection, local_logger)
 
     # Main loop: do work.
+    while True:
+        # Run one iteration of heartbeat checking
+        current_state = heartbeat_rcv.run()
+
+        # Report current state to main process every second
+        report_queue.queue.put(current_state)
+        local_logger.info(f"Reported state: {current_state}")
+
+        # Wait for next iteration (1 second interval)
+        time.sleep(1.0)
 
 
 # =================================================================================================

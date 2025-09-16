@@ -1,0 +1,6 @@
+04:56:18: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+04:56:18: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | main | 115] Connected!
+04:56:19: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:56:20: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:56:21: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:56:22: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected

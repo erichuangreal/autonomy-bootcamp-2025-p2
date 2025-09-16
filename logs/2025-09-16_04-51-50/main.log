@@ -1,0 +1,18 @@
+04:51:50: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+04:51:50: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | main | 115] Connected!
+04:51:51: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:57: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:58: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:51:59: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:52:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Disconnected
+04:52:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Disconnected
+04:52:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Disconnected
+04:52:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Disconnected
+04:52:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:52:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
+04:52:06: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_heartbeat_receiver.py | read_queue | 71] Worker reported status: Connected
