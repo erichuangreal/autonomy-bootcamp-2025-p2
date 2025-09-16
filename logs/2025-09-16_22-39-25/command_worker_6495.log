@@ -1,0 +1,4 @@
+22:39:26: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/command/command_worker.py | command_worker | 55] Logger initialized
+22:39:26: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/command/command.py | __init__ | 81] Command initialized
+22:39:26: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/command/command.py | create | 56] Command created successfully
+22:39:26: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/command/command_worker.py | command_worker | 97] Command worker exiting gracefully
