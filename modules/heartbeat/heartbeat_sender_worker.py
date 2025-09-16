@@ -18,13 +18,15 @@ from ..common.modules.logger import logger
 # =================================================================================================
 def heartbeat_sender_worker(
     connection: mavutil.mavfile,
-    args,  # Place your own arguments here
-    # Add other necessary worker arguments here
+    heartbeat_period: float = 1.0,
+    stop_event = None
 ) -> None:
     """
     Worker process.
 
-    args... describe what the arguments are
+    args:
+        connection: MAVLink connection to send heartbeats through
+        heartbeat_period: Time between heartbeats in seconds (1 sec)
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -47,9 +49,33 @@ def heartbeat_sender_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (heartbeat_sender.HeartbeatSender)
+    
+    local_logger.info("About to create HeartbeatSender instance", True)
+    print("DEBUG: About to create HeartbeatSender")
+    result, heartbeat_sender_instance = heartbeat_sender.HeartbeatSender.create(connection, local_logger)
+    
+    print(f"DEBUG: Create returned result={result}")
+    
+    if not result:
+        local_logger.error("Failed to create HeartbeatSender instance", True)
+        return
+    local_logger.info("HeartbeatSender created successfully", True)
 
     # Main loop: do work.
+    
+    local_logger.info("Starting heartbeat sender worker", True)
 
+    while not (stop_event and stop_event.is_set()):
+        try:
+            heartbeat_sender_instance.send_heartbeat()
+            
+            time.sleep(heartbeat_period) # should be 1 second
+            
+        except Exception as e:
+            local_logger.error(f"Error in heartbeat sender worker: {e}", True)
+            break
+    
+    local_logger.info("Heartbeat sender worker stopped", True)
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
