@@ -80,7 +80,6 @@ class Command:  # pylint: disable=too-many-instance-attributes
         self.velocity_history = []
         self.logger.info("Command initialized")
 
-
     def run(
         self,
         telemetry_data: telemetry.TelemetryData,

@@ -2,7 +2,6 @@
 Heartbeat sending logic.
 """
 
-
 import logging
 
 from pymavlink import mavutil

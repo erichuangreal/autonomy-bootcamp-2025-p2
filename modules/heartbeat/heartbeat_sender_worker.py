@@ -2,7 +2,6 @@
 Heartbeat worker that sends heartbeats periodically.
 """
 
-
 import os
 import pathlib
 import time
@@ -20,7 +19,9 @@ from ..common.modules.logger import logger
 
 
 def heartbeat_sender_worker(
-    connection: mavutil.mavfile, heartbeat_period: float = 1.0, stop_event: typing.Optional[threading.Event] = None
+    connection: mavutil.mavfile,
+    heartbeat_period: float = 1.0,
+    stop_event: typing.Optional[threading.Event] = None,
 ) -> None:
     """
     Worker process.
@@ -40,7 +41,6 @@ def heartbeat_sender_worker(
     if not result:
         print("ERROR: Worker failed to create logger")
         return
-
 
     # Get Pylance to stop complaining
     assert local_logger is not None

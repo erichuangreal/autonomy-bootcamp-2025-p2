@@ -2,7 +2,6 @@
 Test the heartbeat sender worker with a mocked drone.
 """
 
-
 import multiprocessing as mp
 import subprocess
 import threading

@@ -2,7 +2,6 @@
 Command worker to make decisions based on Telemetry Data.
 """
 
-
 import os
 import pathlib
 import time
@@ -17,6 +16,7 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
+
 
 def command_worker(
     connection: mavutil.mavfile,
