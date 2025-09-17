@@ -1,5 +1,0 @@
-04:48:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 45] Logger initialized
-04:48:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | __init__ | 56] HeartbeatReceiver initialized
-04:48:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | create | 37] HeartbeatReceiver created successfully
-04:48:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 70] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
-04:48:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 76] State changed to Connected

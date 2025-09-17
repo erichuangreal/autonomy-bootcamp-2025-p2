@@ -1,4 +1,0 @@
-02:58:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
-02:58:37: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/bootcamp_main.py | main | 187] Started
-02:58:37: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/bootcamp_main.py | main | 197] Drone disconnected
-02:58:38: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/bootcamp_main.py | main | 233] Requested exit
