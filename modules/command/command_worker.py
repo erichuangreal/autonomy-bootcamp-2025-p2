@@ -16,11 +16,12 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
+import queue
 def command_worker(
     connection: mavutil.mavfile,
     target: command.Position,
-    telemetry_queue,
-    command_queue,
+    telemetry_queue: queue.Queue,
+    command_queue: queue.Queue,
     worker_ctrl: worker_controller.WorkerController,
     height_tolerance: float,
     angle_tolerance: float,

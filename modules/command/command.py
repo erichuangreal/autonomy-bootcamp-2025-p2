@@ -40,7 +40,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
         height_tolerance: float,
         angle_tolerance: float,
         local_logger: logger.Logger,
-    ):
+    ) -> "tuple[bool, Command | None]":
         """
         Falliable create (instantiation) method to create a Command object.
         """

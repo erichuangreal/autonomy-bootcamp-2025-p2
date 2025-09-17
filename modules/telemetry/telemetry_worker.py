@@ -17,11 +17,12 @@ from ..common.modules.logger import logger
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
 import time
+import queue
 
 
 def telemetry_worker(
     connection: mavutil.mavfile,
-    telemetry_queue,
+    telemetry_queue: queue.Queue,
     worker_ctrl: worker_controller.WorkerController,
     # Add other necessary worker arguments here
 ) -> None:
