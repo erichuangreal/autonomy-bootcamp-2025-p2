@@ -91,8 +91,8 @@ class Telemetry:
             )
             local_logger.info("Telemetry created successfully")
             return True, telemetry_instance
-        except Exception as e:
-            local_logger.error(f"Failed to create Telemetry: {e}")
+        except (ValueError, AttributeError, mavutil.mavlink.MAVError) as err:
+            local_logger.error(f"Failed to create Telemetry: {err}")
             return False, None
 
     def __init__(

@@ -67,7 +67,7 @@ def read_queue(
             # Get TelemetryData from worker with timeout
             telemetry_data = telemetry_queue.get(timeout=1.0)
             main_logger.info(f"Received TelemetryData: {telemetry_data}")
-        except:
+        except (EOFError, KeyboardInterrupt, TimeoutError, queue_proxy_wrapper.QueueEmpty):
             continue
 
 

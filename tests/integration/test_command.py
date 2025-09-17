@@ -74,7 +74,7 @@ def read_queue(
             # Get command results from worker with timeout
             command_result = command_queue.get(timeout=1.0)
             main_logger.info(f"Received command result: {command_result}")
-        except:
+        except (EOFError, KeyboardInterrupt, TimeoutError, queue_proxy_wrapper.QueueEmpty):
             # Timeout or queue empty, continue
             continue
 

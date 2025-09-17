@@ -2,9 +2,11 @@
 Test the heartbeat sender worker with a mocked drone.
 """
 
+
 import multiprocessing as mp
 import subprocess
 import threading
+import time
 
 from pymavlink import mavutil
 
@@ -12,7 +14,6 @@ from modules.common.modules.logger import logger
 from modules.common.modules.logger import logger_main_setup
 from modules.common.modules.read_yaml import read_yaml
 from modules.heartbeat import heartbeat_sender_worker
-from utilities.workers import worker_controller
 
 
 MOCK_DRONE_MODULE = "tests.integration.mock_drones.heartbeat_sender_drone"
@@ -25,9 +26,8 @@ NUM_TRIALS = 10
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-# Add your own constants here
-# No constants? I think.
-import time
+time.sleep(8)
+stop_flag = threading.Event()
 
 time.sleep(8)
 stop_flag = threading.Event()
@@ -98,7 +98,6 @@ def main() -> int:
     # Create a worker controller for your worker
 
     # Just set a timer to stop the worker after a while, since the worker infinite loops
-    import time
 
     time.sleep(3)
 

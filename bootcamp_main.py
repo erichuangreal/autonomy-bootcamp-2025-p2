@@ -29,8 +29,6 @@ CONNECTION_STRING = "tcp:localhost:12345"
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-from modules.command import command
-
 # Set queue max sizes (<= 0 for infinity)
 HEARTBEAT_QUEUE_SIZE = 10
 TELEMETRY_QUEUE_SIZE = 50

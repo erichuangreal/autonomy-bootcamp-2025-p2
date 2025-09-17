@@ -2,12 +2,13 @@
 Telemtry worker that gathers GPS data.
 """
 
+
 import os
 import pathlib
+import time
+import queue
 
 from pymavlink import mavutil
-
-from utilities.workers import queue_proxy_wrapper
 from utilities.workers import worker_controller
 from . import telemetry
 from ..common.modules.logger import logger
@@ -16,8 +17,6 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-import time
-import queue
 
 
 def telemetry_worker(
@@ -79,7 +78,7 @@ def telemetry_worker(
 
             time.sleep(0.1)
 
-        except Exception as e:
+        except (mavutil.mavlink.MAVError, queue.Full, RuntimeError) as e:
             local_logger.error(f"Error in telemetry worker main loop: {e}")
             time.sleep(0.1)
 

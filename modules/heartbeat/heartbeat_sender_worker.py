@@ -2,13 +2,14 @@
 Heartbeat worker that sends heartbeats periodically.
 """
 
+
 import os
 import pathlib
 import time
+import threading
+import typing
 
 from pymavlink import mavutil
-
-from utilities.workers import worker_controller
 from . import heartbeat_sender
 from ..common.modules.logger import logger
 
@@ -16,12 +17,10 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-from threading import Event
-from typing import Optional
 
 
 def heartbeat_sender_worker(
-    connection: mavutil.mavfile, heartbeat_period: float = 1.0, stop_event: Optional[Event] = None
+    connection: mavutil.mavfile, heartbeat_period: float = 1.0, stop_event: typing.Optional[threading.Event] = None
 ) -> None:
     """
     Worker process.
@@ -60,11 +59,10 @@ def heartbeat_sender_worker(
     while not (stop_event and stop_event.is_set()):
         try:
             heartbeat_sender_instance.send_heartbeat()
-
             time.sleep(heartbeat_period)  # should be 1 second
 
-        except Exception as e:
-            local_logger.error(f"Error in heartbeat sender worker: {e}", True)
+        except (mavutil.mavlink.MAVError, RuntimeError) as err:
+            local_logger.error(f"Error in heartbeat sender worker: {err}", True)
             break
 
 

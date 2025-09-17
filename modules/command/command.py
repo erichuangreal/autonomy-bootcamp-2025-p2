@@ -55,7 +55,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
             )
             local_logger.info("Command created successfully")
             return True, command_instance
-        except Exception as e:
+        except (ValueError, AttributeError, RuntimeError) as e:
             local_logger.error(f"Failed to create Command: {e}")
             return False, None
 
@@ -79,6 +79,7 @@ class Command:  # pylint: disable=too-many-instance-attributes
 
         self.velocity_history = []
         self.logger.info("Command initialized")
+
 
     def run(
         self,
@@ -174,6 +175,8 @@ class Command:  # pylint: disable=too-many-instance-attributes
                     f"Sent yaw change command: current={math.degrees(telemetry_data.yaw):.1f}°, target={math.degrees(target_yaw):.1f}°, delta={yaw_error_degrees:.1f}°"
                 )
                 return f"CHANGE YAW: {yaw_error_degrees:.1f}"
+
+        return None
 
 
 # =================================================================================================

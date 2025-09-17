@@ -2,12 +2,13 @@
 Heartbeat worker that sends heartbeats periodically.
 """
 
+
 import os
 import pathlib
+import time
+import queue
 
 from pymavlink import mavutil
-
-from utilities.workers import queue_proxy_wrapper
 from utilities.workers import worker_controller
 from . import heartbeat_receiver
 from ..common.modules.logger import logger
@@ -16,13 +17,12 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-import time
-import queue
 
 
 def heartbeat_receiver_worker(
     connection: mavutil.mavfile,
     report_queue: queue.Queue,
+    worker_ctrl: worker_controller.WorkerController,
 ) -> None:
     """
     Worker process.
@@ -54,8 +54,14 @@ def heartbeat_receiver_worker(
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
     result, heartbeat_rcv = heartbeat_receiver.HeartbeatReceiver.create(connection, local_logger)
 
+    if not result or heartbeat_rcv is None:
+        local_logger.error("Failed to create HeartbeatReceiver")
+        return
+
+    local_logger.info("HeartbeatReceiver created successfully")
+
     # Main loop: do work.
-    while True:
+    while not worker_ctrl.is_exit_requested():
         # Run one iteration of heartbeat checking
         current_state = heartbeat_rcv.run()
 

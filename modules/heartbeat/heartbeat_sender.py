@@ -2,14 +2,15 @@
 Heartbeat sending logic.
 """
 
+
+import logging
+
 from pymavlink import mavutil
 
 
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-import logging
-from typing import Any
 
 
 class HeartbeatSender:
@@ -31,7 +32,8 @@ class HeartbeatSender:
         try:
             instance = cls(cls.__private_key, connection, logger)
             return True, instance
-        except Exception as e:
+        except (ValueError, AttributeError, mavutil.mavlink.MAVError) as err:
+            logger.error(f"Failed to create HeartbeatSender: {err}")
             return False, None
 
     def __init__(
@@ -58,10 +60,7 @@ class HeartbeatSender:
             mavutil.mavlink.MAV_STATE_ACTIVE,  # System status
         )
 
-    def run(
-        self,
-        args: object,  # Put your own arguments here
-    ) -> None:
+    def run(self) -> None:
         """
         Attempt to send a heartbeat message.
         """

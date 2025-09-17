@@ -10,8 +10,6 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-import logging
-from typing import Any
 
 
 class HeartbeatReceiver:
@@ -38,8 +36,8 @@ class HeartbeatReceiver:
             )
             local_logger.info("HeartbeatReceiver created successfully")
             return True, heartbeat_receiver_instance
-        except Exception as e:
-            local_logger.error(f"Failed to create HeartbeatReceiver: {e}")
+        except (ValueError, AttributeError, mavutil.mavlink.MAVError) as err:
+            local_logger.error(f"Failed to create HeartbeatReceiver: {err}")
             return False, None
 
     def __init__(
@@ -54,7 +52,7 @@ class HeartbeatReceiver:
         self.logger = local_logger
         self.state = "Disconnected"
         self.missed_heartbeats = 0
-        self.MAX_MISSED_HEARTBEATS = 5
+        self.max_missed_heartbeats = 5  # Changed to snake_case
         self.logger.info("HeartbeatReceiver initialized")
 
     def run(
@@ -82,7 +80,7 @@ class HeartbeatReceiver:
             self.logger.warning(f"Missed heartbeat #{self.missed_heartbeats}")
 
             # check if we should disconnect
-            if self.missed_heartbeats >= self.MAX_MISSED_HEARTBEATS:
+            if self.missed_heartbeats >= self.max_missed_heartbeats:
                 if self.state != "Disconnected":
                     self.state = "Disconnected"
                     self.logger.warning(

@@ -2,12 +2,13 @@
 Command worker to make decisions based on Telemetry Data.
 """
 
+
 import os
 import pathlib
+import time
+import queue
 
 from pymavlink import mavutil
-
-from utilities.workers import queue_proxy_wrapper
 from utilities.workers import worker_controller
 from . import command
 from ..common.modules.logger import logger
@@ -16,7 +17,7 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-import queue
+
 def command_worker(
     connection: mavutil.mavfile,
     target: command.Position,
@@ -62,34 +63,35 @@ def command_worker(
     result, command_obj = command.Command.create(
         connection, target, height_tolerance, angle_tolerance, local_logger
     )
-    # Main loop: do work.
     if not result or command_obj is None:
         local_logger.error("Failed to create Command")
         return
 
-        local_logger.info("Command created successfully")
+    local_logger.info("Command created successfully")
 
-        # Main loop: do work.
-        while not worker_ctrl.is_exit_requested():
-            try:
-                # Get telemetry data from Telemetry worker
-                telemetry_data = telemetry_queue.queue.get(timeout=1.0)
-                local_logger.info(f"Received TelemetryData: {telemetry_data}")
+    # Main loop: do work.
+    while not worker_ctrl.is_exit_requested():
+        try:
+            # Get telemetry data from Telemetry worker
+            telemetry_data = telemetry_queue.queue.get(timeout=1.0)
+            local_logger.info(f"Received TelemetryData: {telemetry_data}")
 
-                # Make decision based on telemetry data
-                command_result = command_obj.run(telemetry_data)
+            # Make decision based on telemetry data
+            command_result = command_obj.run(telemetry_data)
 
-                if command_result is not None:
-                    # Send command result to main process
-                    command_queue.queue.put(command_result)
-                    local_logger.info(f"Sent command result: {command_result}")
+            if command_result is not None:
+                # Send command result to main process
+                command_queue.queue.put(command_result)
+                local_logger.info(f"Sent command result: {command_result}")
 
-                time.sleep(0.1)
+            time.sleep(0.1)
 
-            except Exception as e:
-                if "timeout" not in str(e).lower():
-                    local_logger.error(f"Error in command worker main loop: {e}")
-                time.sleep(0.1)
+        except queue.Empty:
+            # Timeout is expected, continue
+            time.sleep(0.1)
+        except (mavutil.mavlink.MAVError, RuntimeError) as e:
+            local_logger.error(f"Error in command worker main loop: {e}")
+            time.sleep(0.1)
 
     local_logger.info("Command worker exiting gracefully")
 

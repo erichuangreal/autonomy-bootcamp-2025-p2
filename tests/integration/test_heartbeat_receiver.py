@@ -69,7 +69,7 @@ def read_queue(
             # Get status report from worker with timeout
             status_report = report_queue.get(timeout=1.0)
             main_logger.info(f"Worker reported status: {status_report}")
-        except:
+        except (EOFError, KeyboardInterrupt, TimeoutError, queue_proxy_wrapper.QueueEmpty):
             # Timeout or queue empty, continue
             continue
 
@@ -141,6 +141,7 @@ def main() -> int:
     heartbeat_receiver_worker.heartbeat_receiver_worker(
         connection,
         report_queue_proxy,
+        worker_ctrl,
     )
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
