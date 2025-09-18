@@ -54,30 +54,21 @@ def telemetry_worker(
     # =============================================================================================
     # Instantiate class object (telemetry.Telemetry)
     result, telemetry_obj = telemetry.Telemetry.create(connection, local_logger)
-
     if not result or telemetry_obj is None:
         local_logger.error("Failed to create Telemetry")
         return
-
     local_logger.info("Telemetry created successfully")
-
     # Main loop: do work.
     while not worker_ctrl.is_exit_requested():
         try:
-            # Get telemetry data (ATTITUDE + LOCAL_POSITION_NED)
             telemetry_data = telemetry_obj.run()
-
             if telemetry_data is not None:
-                # Send TelemetryData to Command worker
                 telemetry_queue.queue.put(telemetry_data)
                 local_logger.info(f"Sent TelemetryData to Command worker: {telemetry_data}")
             else:
-                # Timeout occurred, restart and try again
                 local_logger.warning("Telemetry timeout - restarting collection")
-
             time.sleep(0.1)
-
-        except (mavutil.mavlink.MAVError, queue.Full, RuntimeError) as e:
+        except Exception as e:
             local_logger.error(f"Error in telemetry worker main loop: {e}")
             time.sleep(0.1)
 

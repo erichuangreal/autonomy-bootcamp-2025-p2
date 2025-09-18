@@ -1,0 +1,654 @@
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 50] Logger initialized
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | create | 87] Telemetry created successfully
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 60] Telemetry created successfully
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 0, roll : 0.0, pitch : 0.0, yaw : 0.0, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 0, x : 0.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 0,
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 0,
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:52: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 333, roll : 0.0, pitch : 0.0, yaw : 1.0471975803375244, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 500, x : 0.5, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 500,
+            x: 0.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 500,
+            x: 0.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 666, roll : 0.0, pitch : 0.0, yaw : 2.094395160675049, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 1000, x : 1.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 1000,
+            x: 1.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 1000,
+            x: 1.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:53: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 1333, roll : 0.0, pitch : 0.0, yaw : -2.094395160675049, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 1500, x : 1.5, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 1500,
+            x: 1.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 1500,
+            x: 1.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 1666, roll : 0.0, pitch : 0.0, yaw : -1.0471975803375244, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 2000, x : 2.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 2000,
+            x: 2.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 2000,
+            x: 2.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:54: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 2333, roll : 0.0, pitch : 0.0, yaw : 1.0471975803375244, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 2501, x : 2.5, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 2501,
+            x: 2.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 2501,
+            x: 2.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 2666, roll : 0.0, pitch : 0.0, yaw : 2.094395160675049, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 3000, x : 3.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 3000,
+            x: 3.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 3000,
+            x: 3.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:55: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 3333, roll : 0.0, pitch : 0.0, yaw : -2.094395160675049, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 3500, x : 3.5, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 3500,
+            x: 3.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 3500,
+            x: 3.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -2.094395160675049,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 3666, roll : 0.0, pitch : 0.0, yaw : -1.0471975803375244, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 4000, x : 4.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 4000,
+            x: 4.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 4000,
+            x: 4.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:56: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 4333, roll : 0.0, pitch : 0.0, yaw : 1.0471975803375244, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:57: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 4503, x : 4.5, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:27:57: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 4503,
+            x: 4.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:57: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 4503,
+            x: 4.5,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.0471975803375244,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:27:57: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 4666, roll : 0.0, pitch : 0.0, yaw : 2.094395160675049, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:27:58: [ERROR] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 148] Timeout: Missing LOCAL_POSITION_NED message within 1 second
+02:27:58: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 69] Telemetry timeout - restarting collection
+02:27:58: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 999, roll : 1.0, pitch : 2.0, yaw : 3.0, rollspeed : 555.0, pitchspeed : 555.0, yawspeed : 555.0}
+02:27:59: [ERROR] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 148] Timeout: Missing LOCAL_POSITION_NED message within 1 second
+02:27:59: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 69] Telemetry timeout - restarting collection
+02:28:00: [ERROR] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 144] Timeout: No ATTITUDE or LOCAL_POSITION_NED messages received within 1 second
+02:28:00: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 69] Telemetry timeout - restarting collection
+02:28:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 0, roll : 0.0, pitch : 0.0, yaw : 0.0, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 0, x : 0.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 0,
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 0,
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 333, x : 0.3333333432674408, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 500, roll : 0.0, pitch : 0.0, yaw : 1.5707963705062866, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 500,
+            x: 0.3333333432674408,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 500,
+            x: 0.3333333432674408,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 1000, roll : 0.0, pitch : 0.0, yaw : 3.1415927410125732, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 1000, x : 1.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 1000,
+            x: 1.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 3.1415927410125732,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:01: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 1000,
+            x: 1.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 3.1415927410125732,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 1500, roll : 0.0, pitch : 0.0, yaw : -1.5707963705062866, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 1666, x : 1.6666666269302368, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 1666,
+            x: 1.6666666269302368,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 1666,
+            x: 1.6666666269302368,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 2000, roll : 0.0, pitch : 0.0, yaw : 0.0, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 2000, x : 2.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 2000,
+            x: 2.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 2000,
+            x: 2.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 2500, roll : 0.0, pitch : 0.0, yaw : 1.5707963705062866, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 2666, x : 2.6666667461395264, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 2666,
+            x: 2.6666667461395264,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 2666,
+            x: 2.6666667461395264,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 3000, roll : 0.0, pitch : 0.0, yaw : 3.1415927410125732, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 3000, x : 3.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 3000,
+            x: 3.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 3.1415927410125732,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 3000,
+            x: 3.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 3.1415927410125732,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 3500, roll : 0.0, pitch : 0.0, yaw : -1.5707963705062866, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 3666, x : 3.6666667461395264, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 3666,
+            x: 3.6666667461395264,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 3666,
+            x: 3.6666667461395264,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: -1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 4000, roll : 0.0, pitch : 0.0, yaw : 0.0, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 4000, x : 4.0, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 4000,
+            x: 4.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 4000,
+            x: 4.0,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 0.0,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 116] Received ATTITUDE message: ATTITUDE {time_boot_ms : 4500, roll : 0.0, pitch : 0.0, yaw : 1.5707963705062866, rollspeed : 0.0, pitchspeed : 0.0, yawspeed : 3.1415927410125732}
+02:28:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 122] Received LOCAL_POSITION_NED message: LOCAL_POSITION_NED {time_boot_ms : 4666, x : 4.666666507720947, y : 0.0, z : 0.0, vx : 1.0, vy : 0.0, vz : 0.0}
+02:28:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 139] Created TelemetryData: {
+            time_since_boot: 4666,
+            x: 4.666666507720947,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 67] Sent TelemetryData to Command worker: {
+            time_since_boot: 4666,
+            x: 4.666666507720947,
+            y: 0.0,
+            z: 0.0,
+            x_velocity: 1.0,
+            y_velocity: 0.0,
+            z_velocity: 0.0,
+            roll: 0.0,
+            pitch: 0.0,
+            yaw: 1.5707963705062866,
+            roll_speed: 0.0,
+            pitch_speed: 0.0,
+            yaw_speed: 3.1415927410125732
+        }
+02:28:06: [ERROR] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry.py | run | 144] Timeout: No ATTITUDE or LOCAL_POSITION_NED messages received within 1 second
+02:28:06: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 69] Telemetry timeout - restarting collection
+02:28:06: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/telemetry/telemetry_worker.py | telemetry_worker | 75] Telemetry worker exiting gracefully

@@ -52,23 +52,18 @@ def heartbeat_receiver_worker(
     # =============================================================================================
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
     result, heartbeat_rcv = heartbeat_receiver.HeartbeatReceiver.create(connection, local_logger)
-
     if not result or heartbeat_rcv is None:
         local_logger.error("Failed to create HeartbeatReceiver")
         return
-
     local_logger.info("HeartbeatReceiver created successfully")
-
     # Main loop: do work.
     while not worker_ctrl.is_exit_requested():
-        # Run one iteration of heartbeat checking
-        current_state = heartbeat_rcv.run()
-
-        # Report current state to main process every second
-        report_queue.queue.put(current_state)
-        local_logger.info(f"Reported state: {current_state}")
-
-        # Wait for next iteration (1 second interval)
+        try:
+            current_state = heartbeat_rcv.run()
+            report_queue.queue.put(current_state)
+            local_logger.info(f"Reported state: {current_state}")
+        except Exception as e:
+            local_logger.error(f"Exception in heartbeat receiver worker loop: {e}")
         time.sleep(1.0)
 
 

@@ -1,0 +1,2 @@
+03:14:34: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/command_drone.py | main | 45] Logger initialized
+03:14:38: [ERROR] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/command_drone.py | main | 51] Sent incorrect message type or timed out, still expecting mesages

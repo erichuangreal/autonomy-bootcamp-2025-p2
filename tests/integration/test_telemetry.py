@@ -62,12 +62,13 @@ def read_queue(
     """
     Read and print the output queue.
     """
+    import queue
     while True:
         try:
             # Get TelemetryData from worker with timeout
             telemetry_data = telemetry_queue.get(timeout=1.0)
             main_logger.info(f"Received TelemetryData: {telemetry_data}")
-        except (EOFError, KeyboardInterrupt, TimeoutError, queue_proxy_wrapper.QueueEmpty):
+        except (EOFError, KeyboardInterrupt, TimeoutError, queue.Empty):
             continue
 
 
@@ -98,6 +99,70 @@ def main() -> int:
     # Get Pylance to stop complaining
     assert main_logger is not None
 
+    # Mocked GCS, connect to mocked drone which is listening at CONNECTION_STRING
+    # source_system = 255 (groundside)
+    # source_component = 0 (ground control station)
+    import time
+    time.sleep(2.0)  # Give the mock drone time to start listening
+    connection = mavutil.mavlink_connection(CONNECTION_STRING)
+    connection.mav.heartbeat_send(
+        mavutil.mavlink.MAV_TYPE_GCS,
+        mavutil.mavlink.MAV_AUTOPILOT_INVALID,
+        0,
+        0,
+        0,
+    )
+    main_logger.info("Connected!")
+
+    try:
+        worker_ctrl = worker_controller.WorkerController()
+
+        # Create a multiprocess manager for synchronized queues
+        manager = mp.Manager()
+        # Create your queues
+        telemetry_queue_proxy = queue_proxy_wrapper.QueueProxyWrapper(manager)
+        # Just set a timer to stop the worker after a while, since the worker infinite loops
+        threading.Timer(TELEMETRY_PERIOD * NUM_TRIALS * 2 + NUM_FAILS, stop, (worker_ctrl,)).start()
+
+        # Read the main queue (worker outputs)
+        threading.Thread(target=read_queue, args=(telemetry_queue_proxy.queue, main_logger)).start()
+
+        telemetry_worker.telemetry_worker(
+            connection,
+            telemetry_queue_proxy,
+            worker_ctrl,
+        )
+        return 0
+    except Exception as e:
+        main_logger.error(f"Exception in main: {e}")
+        return -1
+
+
+
+# Wait for the mock drone server to be ready before connecting
+import socket
+import time
+def wait_for_port(host, port, timeout=10.0):
+    start = time.time()
+    while True:
+        try:
+            with socket.create_connection((host, port), timeout=1):
+                return True
+        except (ConnectionRefusedError, OSError):
+            if time.time() - start > timeout:
+                raise TimeoutError(f"Timeout waiting for {host}:{port}")
+            time.sleep(0.2)
+
+def wait_for_mock_drone():
+    # Parse host/port from CONNECTION_STRING (e.g. 'tcp:127.0.0.1:5763')
+    if CONNECTION_STRING.startswith('tcp:'):
+        _, host, port = CONNECTION_STRING.split(':')
+        port = int(port)
+        wait_for_port(host, port, timeout=10.0)
+
+
+    # Wait for the mock drone server to be ready before connecting
+    wait_for_mock_drone()
     # Mocked GCS, connect to mocked drone which is listening at CONNECTION_STRING
     # source_system = 255 (groundside)
     # source_component = 0 (ground control station)

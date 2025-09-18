@@ -2,15 +2,12 @@
 Heartbeat sending logic.
 """
 
-import logging
-
 from pymavlink import mavutil
 
 
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-
 
 class HeartbeatSender:
     """
@@ -23,47 +20,42 @@ class HeartbeatSender:
     def create(
         cls,
         connection: mavutil.mavfile,
-        logger: logging.Logger,  # Put your own arguments here
-    ) -> "tuple[True, HeartbeatSender] | tuple[False, None]":
-        """
-        Falliable create (instantiation) method to create a HeartbeatSender object.
-        """
+        logger=None,
+    ):
         try:
             instance = cls(cls.__private_key, connection, logger)
             return True, instance
-        except (ValueError, AttributeError, mavutil.mavlink.MAVError) as err:
-            logger.error(f"Failed to create HeartbeatSender: {err}")
+        except Exception as e:
+            if logger:
+                logger.error(f"Failed to create HeartbeatSender: {e}", True)
             return False, None
 
     def __init__(
         self,
         key: object,
         connection: mavutil.mavfile,
-        logger: logging.Logger,  # Put your own arguments here
+        logger=None,
     ) -> None:
         assert key is HeartbeatSender.__private_key, "Use create() method"
-
-        # Do any intializiation here
         self.connection = connection
         self.logger = logger
 
-    def send_heartbeat(self) -> None:
-        """
-        Send a MAVLink heartbeat message.
-        """
-        self.connection.mav.heartbeat_send(
-            mavutil.mavlink.MAV_TYPE_GCS,  # Type: GCS
-            mavutil.mavlink.MAV_AUTOPILOT_INVALID,  # Autopilot: generic
-            0,  # Base mode
-            0,  # Custom mode
-            mavutil.mavlink.MAV_STATE_ACTIVE,  # System status
-        )
-
     def run(self) -> None:
-        """
-        Attempt to send a heartbeat message.
-        """
-        self.send_heartbeat()
+        try:
+            if self.logger:
+                self.logger.info("Sending heartbeat", True)
+            self.connection.mav.heartbeat_send(
+                mavutil.mavlink.MAV_TYPE_GCS, mavutil.mavlink.MAV_AUTOPILOT_INVALID, 0, 0, 0
+            )
+            if self.logger:
+                self.logger.info("Heartbeat sent", True)
+        except Exception as e:
+            if self.logger:
+                self.logger.error(f"Error sending heartbeat: {e}", True)
+
+# =================================================================================================
+#                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
+# =================================================================================================
 
 
 # =================================================================================================

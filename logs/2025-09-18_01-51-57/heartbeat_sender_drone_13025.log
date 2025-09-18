@@ -1,0 +1,12 @@
+01:51:58: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 40] Logger initialized
+01:52:02: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:06: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:08: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:09: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:10: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:11: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 71] Drone: Recieved heartbeat!
+01:52:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/mock_drones/heartbeat_sender_drone.py | main | 80] Passed!

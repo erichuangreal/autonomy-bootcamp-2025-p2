@@ -1,0 +1,24 @@
+02:57:58: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/common/modules/logger/logger_main_setup.py | setup_main_logger | 62] main logger initialized
+02:57:59: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | main | 135] Connected!
+02:58:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE ALTITUDE: 1.00
+02:58:00: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE ALTITUDE: -1.00
+02:58:03: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 63.4
+02:58:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 90.0
+02:58:04: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 116.6
+02:58:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 45.0
+02:58:05: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 63.4
+02:58:06: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 90.0
+02:58:06: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 26.6
+02:58:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 45.0
+02:58:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 90.0
+02:58:08: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 45.0
+02:58:09: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 90.0
+02:58:10: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: 135.0
+02:58:10: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -26.6
+02:58:11: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -45.0
+02:58:12: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -90.0
+02:58:12: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -45.0
+02:58:13: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -90.0
+02:58:14: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -135.0
+02:58:15: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -63.4
+02:58:15: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/tests/integration/test_command.py | read_queue | 77] Received command result: CHANGE YAW: -90.0

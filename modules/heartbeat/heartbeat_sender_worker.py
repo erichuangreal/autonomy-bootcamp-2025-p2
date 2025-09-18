@@ -5,13 +5,12 @@ Heartbeat worker that sends heartbeats periodically.
 import os
 import pathlib
 import time
-import threading
-import typing
 
 from pymavlink import mavutil
+
+from utilities.workers import worker_controller
 from . import heartbeat_sender
 from ..common.modules.logger import logger
-
 
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
@@ -20,15 +19,14 @@ from ..common.modules.logger import logger
 
 def heartbeat_sender_worker(
     connection: mavutil.mavfile,
-    heartbeat_period: float = 1.0,
-    stop_event: typing.Optional[threading.Event] = None,
+    controller: worker_controller.WorkerController,
 ) -> None:
     """
     Worker process.
 
     args:
         connection: MAVLink connection to send heartbeats through
-        heartbeat_period: Time between heartbeats in seconds (1 sec)
+        controller: WorkerController object to manage worker state
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -48,33 +46,24 @@ def heartbeat_sender_worker(
     local_logger.info("Logger initialized", True)
 
     # Wait a moment to ensure the drone is ready
-    time.sleep(1)
+    time.sleep(3)
 
     # =============================================================================================
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
 
     # Instantiate class object (heartbeat_sender.HeartbeatSender)
-    result, heartbeat_sender_instance = heartbeat_sender.HeartbeatSender.create(
-        connection, local_logger
-    )
-
-    if not result or heartbeat_sender_instance is None:
+    result, heart_beat_sender_object = heartbeat_sender.HeartbeatSender.create(connection, local_logger)
+    if not result or heart_beat_sender_object is None:
         local_logger.error("Failed to create HeartbeatSender instance", True)
         return
-
-    # Main loop: do work.
-    while not (stop_event and stop_event.is_set()):
+    while not controller.is_exit_requested():
         try:
-            local_logger.info("About to send heartbeat", True)
-            heartbeat_sender_instance.send_heartbeat()
-            local_logger.info("Heartbeat sent", True)
-            time.sleep(heartbeat_period)  # should be 1 second
-
-        except (mavutil.mavlink.MAVError, RuntimeError) as err:
-            local_logger.error(f"Error in heartbeat sender worker: {err}", True)
-            break
-
+            heart_beat_sender_object.run()
+        except Exception as e:
+            local_logger.error(f"Exception in heartbeat worker loop: {e}", True)
+        time.sleep(0.95)
+        
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

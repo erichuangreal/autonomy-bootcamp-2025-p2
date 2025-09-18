@@ -5,7 +5,6 @@ Test the heartbeat sender worker with a mocked drone.
 import multiprocessing as mp
 import subprocess
 import threading
-import time
 
 from pymavlink import mavutil
 
@@ -13,6 +12,7 @@ from modules.common.modules.logger import logger
 from modules.common.modules.logger import logger_main_setup
 from modules.common.modules.read_yaml import read_yaml
 from modules.heartbeat import heartbeat_sender_worker
+from utilities.workers import worker_controller
 
 
 MOCK_DRONE_MODULE = "tests.integration.mock_drones.heartbeat_sender_drone"
@@ -25,11 +25,7 @@ NUM_TRIALS = 10
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-time.sleep(8)
-stop_flag = threading.Event()
-
-time.sleep(8)
-stop_flag = threading.Event()
+controller = worker_controller.WorkerController()
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -42,7 +38,7 @@ def start_drone() -> None:
     """
     Start the mocked drone.
     """
-    subprocess.run(["python", "-m", MOCK_DRONE_MODULE], shell=True, check=False)
+    subprocess.run(["python", "-m", MOCK_DRONE_MODULE], shell=False, check=False)
 
 
 # =================================================================================================
@@ -52,7 +48,7 @@ def stop() -> None:
     """
     Stop the workers.
     """
-    stop_flag.set()
+    controller.request_exit()
 
 
 # =================================================================================================
@@ -98,12 +94,13 @@ def main() -> int:
 
     # Just set a timer to stop the worker after a while, since the worker infinite loops
 
-    time.sleep(3)
+    threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS + 3, stop).start()
 
-    threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS, stop).start()
-
+    main_logger.info("Starting Heartbeat Worker")
     heartbeat_sender_worker.heartbeat_sender_worker(
-        connection=connection, heartbeat_period=HEARTBEAT_PERIOD, stop_event=stop_flag
+        # Place your own arguments here
+        connection,
+        controller,
     )
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
