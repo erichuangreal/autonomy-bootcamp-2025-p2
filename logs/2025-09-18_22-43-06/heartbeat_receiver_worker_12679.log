@@ -1,0 +1,47 @@
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 44] Logger initialized
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | __init__ | 46] HeartbeatReceiver initialized with max_missed_heartbeats=5
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | create | 28] HeartbeatReceiver created successfully
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 54] HeartbeatReceiver created successfully
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 56] State changed to Connected
+22:43:07: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:08: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:08: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:09: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:09: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:10: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:10: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:11: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:11: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:12: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #1
+22:43:12: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:13: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #2
+22:43:14: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:15: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #3
+22:43:15: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:16: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #4
+22:43:16: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:17: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #5
+22:43:17: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 63] State changed to Disconnected - missed 5 consecutive heartbeats
+22:43:17: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Disconnected
+22:43:18: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #6
+22:43:18: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Disconnected
+22:43:19: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #7
+22:43:19: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Disconnected
+22:43:20: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #8
+22:43:20: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Disconnected
+22:43:21: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:21: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 56] State changed to Connected
+22:43:21: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:22: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:22: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:23: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:23: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:24: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:24: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:25: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:25: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:26: [WARNING] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 59] Missed heartbeat #1
+22:43:26: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected
+22:43:27: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver.py | run | 52] Received HEARTBEAT message: HEARTBEAT {type : 0, autopilot : 0, base_mode : 0, custom_mode : 0, system_status : 0, mavlink_version : 3}
+22:43:27: [INFO] [/home/eric/projects/warg_bootcamp/autonomy-bootcamp-2025-p2/modules/heartbeat/heartbeat_receiver_worker.py | heartbeat_receiver_worker | 60] Reported state: Connected

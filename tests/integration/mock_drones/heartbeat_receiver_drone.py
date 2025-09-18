@@ -1,4 +1,3 @@
-
 """
 Mock drone for testing Heartbeat Receiver.
 """

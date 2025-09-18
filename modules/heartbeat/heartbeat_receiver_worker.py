@@ -4,10 +4,10 @@ Heartbeat worker that sends heartbeats periodically.
 
 import os
 import pathlib
-import time
-import queue
 
 from pymavlink import mavutil
+
+from utilities.workers import queue_proxy_wrapper
 from utilities.workers import worker_controller
 from . import heartbeat_receiver
 from ..common.modules.logger import logger
@@ -16,19 +16,17 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-
-
 def heartbeat_receiver_worker(
+
     connection: mavutil.mavfile,
-    report_queue: queue.Queue,
-    worker_ctrl: worker_controller.WorkerController,
+    report_queue: 'queue_proxy_wrapper.QueueProxyWrapper',
+    worker_ctrl: 'worker_controller.WorkerController',
 ) -> None:
     """
     Worker process.
-
-    args...
     connection: MAVLink connection object for receiving messages
-    report_queue: Queue to send status reports to main process
+    report_queue: QueueProxyWrapper to send status reports to main process
+    worker_ctrl: WorkerController for exit signaling
     """
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -42,9 +40,7 @@ def heartbeat_receiver_worker(
         print("ERROR: Worker failed to create logger")
         return
 
-    # Get Pylance to stop complaining
     assert local_logger is not None
-
     local_logger.info("Logger initialized", True)
 
     # =============================================================================================
@@ -56,7 +52,7 @@ def heartbeat_receiver_worker(
         local_logger.error("Failed to create HeartbeatReceiver")
         return
     local_logger.info("HeartbeatReceiver created successfully")
-    # Main loop: do work.
+    import time
     while not worker_ctrl.is_exit_requested():
         try:
             current_state = heartbeat_rcv.run()

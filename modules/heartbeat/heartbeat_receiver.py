@@ -10,10 +10,9 @@ from ..common.modules.logger import logger
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-
 class HeartbeatReceiver:
     """
-    HeartbeatReceiver class to receive a heartbeat
+    HeartbeatReceiver class to send a heartbeat
     """
 
     __private_key = object()
@@ -25,15 +24,11 @@ class HeartbeatReceiver:
         local_logger: logger.Logger,
     ):
         try:
-            heartbeat_receiver_instance = HeartbeatReceiver(
-                cls.__private_key,
-                connection,
-                local_logger,
-            )
+            instance = cls(cls.__private_key, connection, local_logger)
             local_logger.info("HeartbeatReceiver created successfully")
-            return True, heartbeat_receiver_instance
-        except Exception as err:
-            local_logger.error(f"Failed to create HeartbeatReceiver: {err}")
+            return True, instance
+        except Exception as e:
+            local_logger.error(f"Failed to create HeartbeatReceiver: {e}")
             return False, None
 
     def __init__(
@@ -48,11 +43,11 @@ class HeartbeatReceiver:
         self.state = "Disconnected"
         self.missed_heartbeats = 0
         self.max_missed_heartbeats = 5
-        self.logger.info("HeartbeatReceiver initialized")
+        self.logger.info(f"HeartbeatReceiver initialized with max_missed_heartbeats={self.max_missed_heartbeats}")
 
-    def run(self) -> str:
+    def run(self):
         try:
-            msg = self.connection.recv_match(type="HEARTBEAT", blocking=False, timeout=0.1)
+            msg = self.connection.recv_match(type="HEARTBEAT", blocking=False, timeout=0.5)
             if msg is not None:
                 self.logger.info(f"Received HEARTBEAT message: {msg}")
                 self.missed_heartbeats = 0
@@ -69,10 +64,6 @@ class HeartbeatReceiver:
         except Exception as e:
             self.logger.error(f"Error in HeartbeatReceiver run: {e}")
         return self.state
-
-# =================================================================================================
-#                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
-# =================================================================================================
 
 
 # =================================================================================================

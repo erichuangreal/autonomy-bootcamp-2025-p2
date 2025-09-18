@@ -48,30 +48,24 @@ def start_drone() -> None:
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
-def stop(
-    worker_ctrl: worker_controller.WorkerController,
-) -> None:
+
+def stop(worker_ctrl: worker_controller.WorkerController, report_queue: queue_proxy_wrapper.QueueProxyWrapper) -> None:
     """
-    Stop the workers.
+    Stop the worker and drain the report queue.
     """
     worker_ctrl.request_exit()
+    report_queue.fill_and_drain_queue()
 
 
-def read_queue(
-    report_queue: mp.Queue,
-    main_logger: logger.Logger,
-) -> None:
+
+def read_queue(report_queue: queue_proxy_wrapper.QueueProxyWrapper, main_logger: logger.Logger, worker_ctrl: worker_controller.WorkerController) -> None:
     """
     Read and print the output queue.
     """
-    while True:
-        try:
-            # Get status report from worker with timeout
-            status_report = report_queue.get(timeout=1.0)
-            main_logger.info(f"Worker reported status: {status_report}")
-        except (EOFError, KeyboardInterrupt, TimeoutError, queue_proxy_wrapper.QueueEmpty):
-            # Timeout or queue empty, continue
-            continue
+    while not worker_ctrl.is_exit_requested():
+        if not report_queue.queue.empty():
+            status = report_queue.queue.get()
+            main_logger.info(f"Worker reported status: {status}")
 
 
 # =================================================================================================
@@ -118,29 +112,29 @@ def main() -> int:
     # =============================================================================================
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
-    # Mock starting a worker, since cannot actually start a new process
     # Create a worker controller for your worker
     worker_ctrl = worker_controller.WorkerController()
 
     # Create a multiprocess manager for synchronized queues
-    manager = mp.Manager()
+    mp_manager = mp.Manager()
 
     # Create your queues
-    report_queue_proxy = queue_proxy_wrapper.QueueProxyWrapper(manager)
+    report_queue = queue_proxy_wrapper.QueueProxyWrapper(mp_manager)
 
     # Just set a timer to stop the worker after a while, since the worker infinite loops
     threading.Timer(
         HEARTBEAT_PERIOD * (NUM_TRIALS * 2 + DISCONNECT_THRESHOLD + NUM_DISCONNECTS + 2),
         stop,
-        (worker_ctrl,),
+        (worker_ctrl, report_queue),
     ).start()
 
     # Read the main queue (worker outputs)
-    threading.Thread(target=read_queue, args=(report_queue_proxy.queue, main_logger)).start()
+    threading.Thread(target=read_queue, args=(report_queue, main_logger, worker_ctrl), daemon=True).start()
 
+    # Start the heartbeat receiver worker (this is what is being tested)
     heartbeat_receiver_worker.heartbeat_receiver_worker(
         connection,
-        report_queue_proxy,
+        report_queue,
         worker_ctrl,
     )
     # =============================================================================================

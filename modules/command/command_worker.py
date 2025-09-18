@@ -22,65 +22,21 @@ def command_worker(
     controller: worker_controller.WorkerController,
     command_input_queue: queue_proxy_wrapper.QueueProxyWrapper,
     command_output_queue: queue_proxy_wrapper.QueueProxyWrapper,
-    height_tolerance: float,
-    angle_tolerance: float,
 ) -> None:
     """
-    Worker process for command decisions.
+    Worker process.
+
+    args... describe what the arguments are
+    connection: connection to drone,
+    target: position of interest,
+    controller: worker controller,
+    command_input_queue: queue of inputs,
+    command_output_queue: queue of outputs,
     """
-    # Instantiate logger
-    import datetime
-    worker_name = pathlib.Path(__file__).stem
-    process_id = os.getpid()
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-    log_id = f"{worker_name}_{process_id}_{timestamp}"
-    result, local_logger = logger.Logger.create(log_id, True)
-    if not result:
-        print("ERROR: Worker failed to create logger")
-        return
-    assert local_logger is not None
-    local_logger.info("Logger initialized", True)
-
-    # Instantiate Command object
-    result, command_obj = command.Command.create(
-        connection, target, height_tolerance, angle_tolerance, local_logger
-    )
-    if not result or command_obj is None:
-        local_logger.error("Failed to create Command")
-        return
-    local_logger.info("Command created successfully")
-
-    # Main loop: process telemetry and send commands
-    import time
-    import queue
-    while not controller.is_exit_requested():
-        try:
-            try:
-                telemetry_data = command_input_queue.queue.get(timeout=1.0)
-            except queue.Empty:
-                time.sleep(0.1)
-                continue
-            except Exception as qexc:
-                local_logger.error(f"Exception getting telemetry from queue: {qexc}", exc_info=True)
-                time.sleep(0.1)
-                continue
-            local_logger.info(f"Received TelemetryData: {telemetry_data}")
-            try:
-                command_result = command_obj.run(telemetry_data)
-            except Exception as run_exc:
-                local_logger.error(f"Exception in Command.run: {run_exc}", exc_info=True)
-                continue
-            if command_result is not None:
-                try:
-                    command_output_queue.queue.put(command_result)
-                    local_logger.info(f"Sent command result: {command_result}")
-                except Exception as put_exc:
-                    local_logger.error(f"Exception putting command result in queue: {put_exc}", exc_info=True)
-            time.sleep(0.1)
-        except Exception as outer_exc:
-            local_logger.error(f"Unexpected exception in command worker: {outer_exc}", exc_info=True)
-            time.sleep(0.1)
-    local_logger.info("Command worker exiting gracefully")
+    
+    # =============================================================================================
+    #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
+    # =============================================================================================
 
     # Instantiate logger
     worker_name = pathlib.Path(__file__).stem
@@ -99,9 +55,13 @@ def command_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (command.Command)
-
-    # Main loop: do work.
-
+    command_object = command.Command.create(connection, target, local_logger)
+    while not controller.is_exit_requested():
+        if not command_input_queue.queue.empty():
+            path = command_input_queue.queue.get()
+            run_command = command_object.run(target, path)
+            if run_command:
+                command_output_queue.queue.put(run_command)
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
