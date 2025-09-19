@@ -33,7 +33,7 @@ def command_worker(
     command_input_queue: queue of inputs,
     command_output_queue: queue of outputs,
     """
-    
+
     # =============================================================================================
     #                          ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
     # =============================================================================================
@@ -62,6 +62,7 @@ def command_worker(
             run_command = command_object.run(target, path)
             if run_command:
                 command_output_queue.queue.put(run_command)
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

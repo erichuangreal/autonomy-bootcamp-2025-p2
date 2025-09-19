@@ -49,7 +49,11 @@ def start_drone() -> None:
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
 
-def stop(worker_ctrl: worker_controller.WorkerController, report_queue: queue_proxy_wrapper.QueueProxyWrapper) -> None:
+
+def stop(
+    worker_ctrl: worker_controller.WorkerController,
+    report_queue: queue_proxy_wrapper.QueueProxyWrapper,
+) -> None:
     """
     Stop the worker and drain the report queue.
     """
@@ -57,8 +61,11 @@ def stop(worker_ctrl: worker_controller.WorkerController, report_queue: queue_pr
     report_queue.fill_and_drain_queue()
 
 
-
-def read_queue(report_queue: queue_proxy_wrapper.QueueProxyWrapper, main_logger: logger.Logger, worker_ctrl: worker_controller.WorkerController) -> None:
+def read_queue(
+    report_queue: queue_proxy_wrapper.QueueProxyWrapper,
+    main_logger: logger.Logger,
+    worker_ctrl: worker_controller.WorkerController,
+) -> None:
     """
     Read and print the output queue.
     """
@@ -129,7 +136,9 @@ def main() -> int:
     ).start()
 
     # Read the main queue (worker outputs)
-    threading.Thread(target=read_queue, args=(report_queue, main_logger, worker_ctrl), daemon=True).start()
+    threading.Thread(
+        target=read_queue, args=(report_queue, main_logger, worker_ctrl), daemon=True
+    ).start()
 
     # Start the heartbeat receiver worker (this is what is being tested)
     heartbeat_receiver_worker.heartbeat_receiver_worker(

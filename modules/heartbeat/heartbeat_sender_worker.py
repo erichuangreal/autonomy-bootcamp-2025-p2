@@ -53,17 +53,16 @@ def heartbeat_sender_worker(
     # =============================================================================================
 
     # Instantiate class object (heartbeat_sender.HeartbeatSender)
-    result, heart_beat_sender_object = heartbeat_sender.HeartbeatSender.create(connection, local_logger)
+    result, heart_beat_sender_object = heartbeat_sender.HeartbeatSender.create(
+        connection, local_logger
+    )
     if not result or heart_beat_sender_object is None:
         local_logger.error("Failed to create HeartbeatSender instance", True)
         return
     while not controller.is_exit_requested():
-        try:
-            heart_beat_sender_object.run()
-        except Exception as e:
-            local_logger.error(f"Exception in heartbeat worker loop: {e}", True)
+        heart_beat_sender_object.run()
         time.sleep(0.95)
-        
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

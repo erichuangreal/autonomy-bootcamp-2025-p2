@@ -63,6 +63,7 @@ def read_queue(
     Read and print the output queue.
     """
     import queue
+
     while True:
         try:
             # Get TelemetryData from worker with timeout
@@ -103,6 +104,7 @@ def main() -> int:
     # source_system = 255 (groundside)
     # source_component = 0 (ground control station)
     import time
+
     time.sleep(2.0)  # Give the mock drone time to start listening
     connection = mavutil.mavlink_connection(CONNECTION_STRING)
     connection.mav.heartbeat_send(
@@ -138,10 +140,11 @@ def main() -> int:
         return -1
 
 
-
 # Wait for the mock drone server to be ready before connecting
 import socket
 import time
+
+
 def wait_for_port(host, port, timeout=10.0):
     start = time.time()
     while True:
@@ -153,13 +156,13 @@ def wait_for_port(host, port, timeout=10.0):
                 raise TimeoutError(f"Timeout waiting for {host}:{port}")
             time.sleep(0.2)
 
+
 def wait_for_mock_drone():
     # Parse host/port from CONNECTION_STRING (e.g. 'tcp:127.0.0.1:5763')
-    if CONNECTION_STRING.startswith('tcp:'):
-        _, host, port = CONNECTION_STRING.split(':')
+    if CONNECTION_STRING.startswith("tcp:"):
+        _, host, port = CONNECTION_STRING.split(":")
         port = int(port)
         wait_for_port(host, port, timeout=10.0)
-
 
     # Wait for the mock drone server to be ready before connecting
     wait_for_mock_drone()

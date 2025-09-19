@@ -77,18 +77,14 @@ class Telemetry:
         cls,
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
-    ):
-        try:
-            telemetry_instance = cls(
-                cls.__private_key,
-                connection,
-                local_logger,
-            )
-            local_logger.info("Telemetry created successfully")
-            return True, telemetry_instance
-        except Exception as err:
-            local_logger.error(f"Failed to create Telemetry: {err}")
-            return False, None
+    ) -> tuple[bool, "Telemetry"]:
+        telemetry_instance = cls(
+            cls.__private_key,
+            connection,
+            local_logger,
+        )
+        local_logger.info("Telemetry created successfully")
+        return True, telemetry_instance
 
     def __init__(
         self,
@@ -106,49 +102,51 @@ class Telemetry:
         attitude_msg = None
         position_msg = None
         most_recent_time = 0
-        try:
-            while time.time() - start_time < self.timeout:
-                if attitude_msg is None:
-                    msg = self.connection.recv_match(type="ATTITUDE", blocking=False, timeout=0.1)
-                    if msg is not None:
-                        attitude_msg = msg
-                        most_recent_time = max(most_recent_time, msg.time_boot_ms)
-                        self.logger.info(f"Received ATTITUDE message: {msg}")
-                if position_msg is None:
-                    msg = self.connection.recv_match(type="LOCAL_POSITION_NED", blocking=False, timeout=0.1)
-                    if msg is not None:
-                        position_msg = msg
-                        most_recent_time = max(most_recent_time, msg.time_boot_ms)
-                        self.logger.info(f"Received LOCAL_POSITION_NED message: {msg}")
-                if attitude_msg is not None and position_msg is not None:
-                    telemetry_data = TelemetryData(
-                        time_since_boot=most_recent_time,
-                        x=position_msg.x,
-                        y=position_msg.y,
-                        z=position_msg.z,
-                        x_velocity=position_msg.vx,
-                        y_velocity=position_msg.vy,
-                        z_velocity=position_msg.vz,
-                        roll=attitude_msg.roll,
-                        pitch=attitude_msg.pitch,
-                        yaw=attitude_msg.yaw,
-                        roll_speed=attitude_msg.rollspeed,
-                        pitch_speed=attitude_msg.pitchspeed,
-                        yaw_speed=attitude_msg.yawspeed,
-                    )
-                    self.logger.info(f"Created TelemetryData: {telemetry_data}")
-                    return telemetry_data
-                time.sleep(0.01)
-            # Timeout occurred
-            if attitude_msg is None and position_msg is None:
-                self.logger.error("Timeout: No ATTITUDE or LOCAL_POSITION_NED messages received within 1 second")
-            elif attitude_msg is None:
-                self.logger.error("Timeout: Missing ATTITUDE message within 1 second")
-            elif position_msg is None:
-                self.logger.error("Timeout: Missing LOCAL_POSITION_NED message within 1 second")
-        except Exception as e:
-            self.logger.error(f"Error in Telemetry.run: {e}")
+        while time.time() - start_time < self.timeout:
+            if attitude_msg is None:
+                msg = self.connection.recv_match(type="ATTITUDE", blocking=False, timeout=0.1)
+                if msg is not None:
+                    attitude_msg = msg
+                    most_recent_time = max(most_recent_time, msg.time_boot_ms)
+                    self.logger.info(f"Received ATTITUDE message: {msg}")
+            if position_msg is None:
+                msg = self.connection.recv_match(
+                    type="LOCAL_POSITION_NED", blocking=False, timeout=0.1
+                )
+                if msg is not None:
+                    position_msg = msg
+                    most_recent_time = max(most_recent_time, msg.time_boot_ms)
+                    self.logger.info(f"Received LOCAL_POSITION_NED message: {msg}")
+            if attitude_msg is not None and position_msg is not None:
+                telemetry_data = TelemetryData(
+                    time_since_boot=most_recent_time,
+                    x=position_msg.x,
+                    y=position_msg.y,
+                    z=position_msg.z,
+                    x_velocity=position_msg.vx,
+                    y_velocity=position_msg.vy,
+                    z_velocity=position_msg.vz,
+                    roll=attitude_msg.roll,
+                    pitch=attitude_msg.pitch,
+                    yaw=attitude_msg.yaw,
+                    roll_speed=attitude_msg.rollspeed,
+                    pitch_speed=attitude_msg.pitchspeed,
+                    yaw_speed=attitude_msg.yawspeed,
+                )
+                self.logger.info(f"Created TelemetryData: {telemetry_data}")
+                return telemetry_data
+            time.sleep(0.01)
+        # Timeout occurred
+        if attitude_msg is None and position_msg is None:
+            self.logger.error(
+                "Timeout: No ATTITUDE or LOCAL_POSITION_NED messages received within 1 second"
+            )
+        elif attitude_msg is None:
+            self.logger.error("Timeout: Missing ATTITUDE message within 1 second")
+        elif position_msg is None:
+            self.logger.error("Timeout: Missing LOCAL_POSITION_NED message within 1 second")
         return None
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑

@@ -65,6 +65,7 @@ def stop(
     command_input_queue.fill_and_drain_queue()
     command_output_queue.fill_and_drain_queue()
 
+
 def read_queue(
     command_output_queue: queue_proxy_wrapper.QueueProxyWrapper,
     controller: worker_controller.WorkerController,
@@ -88,6 +89,7 @@ def put_queue(
     for data in data_array:
         input_queue.queue.put(data)
         time.sleep(TELEMETRY_PERIOD)
+
 
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
@@ -235,7 +237,7 @@ def main() -> int:
             command_output_queue,
         ),
     ).start()
-    
+
     # Put items into input queue
     threading.Thread(
         target=put_queue,
@@ -244,12 +246,12 @@ def main() -> int:
             path,
         ),
     ).start()
-    
+
     # Read the main queue (worker outputs)
     threading.Thread(
         target=read_queue, args=(command_output_queue, controller, main_logger)
     ).start()
-    
+
     command_worker.command_worker(
         connection,
         TARGET,

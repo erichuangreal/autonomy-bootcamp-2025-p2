@@ -60,19 +60,13 @@ def telemetry_worker(
     local_logger.info("Telemetry created successfully")
     # Main loop: do work.
     while not worker_ctrl.is_exit_requested():
-        try:
-            telemetry_data = telemetry_obj.run()
-            if telemetry_data is not None:
-                telemetry_queue.queue.put(telemetry_data)
-                local_logger.info(f"Sent TelemetryData to Command worker: {telemetry_data}")
-            else:
-                local_logger.warning("Telemetry timeout - restarting collection")
-            time.sleep(0.1)
-        except Exception as e:
-            local_logger.error(f"Error in telemetry worker main loop: {e}")
-            time.sleep(0.1)
-
-    local_logger.info("Telemetry worker exiting gracefully")
+        telemetry_data = telemetry_obj.run()
+        if telemetry_data is not None:
+            telemetry_queue.queue.put(telemetry_data)
+            local_logger.info(f"Sent TelemetryData to Command worker: {telemetry_data}")
+        else:
+            local_logger.warning("Telemetry timeout - restarting collection")
+        time.sleep(0.1)
 
 
 # =================================================================================================

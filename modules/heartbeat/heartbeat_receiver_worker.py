@@ -17,10 +17,9 @@ from ..common.modules.logger import logger
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
 # =================================================================================================
 def heartbeat_receiver_worker(
-
     connection: mavutil.mavfile,
-    report_queue: 'queue_proxy_wrapper.QueueProxyWrapper',
-    worker_ctrl: 'worker_controller.WorkerController',
+    report_queue: "queue_proxy_wrapper.QueueProxyWrapper",
+    worker_ctrl: "worker_controller.WorkerController",
 ) -> None:
     """
     Worker process.
@@ -53,13 +52,11 @@ def heartbeat_receiver_worker(
         return
     local_logger.info("HeartbeatReceiver created successfully")
     import time
+
     while not worker_ctrl.is_exit_requested():
-        try:
-            current_state = heartbeat_rcv.run()
-            report_queue.queue.put(current_state)
-            local_logger.info(f"Reported state: {current_state}")
-        except Exception as e:
-            local_logger.error(f"Exception in heartbeat receiver worker loop: {e}")
+        current_state = heartbeat_rcv.run()
+        report_queue.queue.put(current_state)
+        local_logger.info(f"Reported state: {current_state}")
         time.sleep(1.0)
 
 
