@@ -78,6 +78,10 @@ class Telemetry:
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
     ) -> tuple[bool, "Telemetry"]:
+        """
+        Create a new Telemetry instance with the given connection and logger.
+        Returns a tuple (success, Telemetry instance).
+        """
         telemetry_instance = cls(
             cls.__private_key,
             connection,
@@ -92,12 +96,19 @@ class Telemetry:
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
     ) -> None:
+        """
+        Initialize the Telemetry object with a MAVLink connection and logger.
+        """
         assert key is Telemetry.__private_key, "Use create() method"
         self.connection = connection
         self.logger = local_logger
         self.timeout = 1.0
 
     def run(self) -> TelemetryData | None:
+        """
+        Collect and return the latest telemetry data from the MAVLink connection.
+        Returns None if data is not available within the timeout.
+        """
         start_time = time.time()
         attitude_msg = None
         position_msg = None

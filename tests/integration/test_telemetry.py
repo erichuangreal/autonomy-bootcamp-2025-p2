@@ -6,6 +6,7 @@ import multiprocessing as mp
 import subprocess
 import threading
 
+import queue
 from pymavlink import mavutil
 
 from modules.common.modules.logger import logger
@@ -62,7 +63,6 @@ def read_queue(
     """
     Read and print the output queue.
     """
-    import queue
 
     while True:
         try:
