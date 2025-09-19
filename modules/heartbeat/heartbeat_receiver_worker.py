@@ -4,6 +4,7 @@ Heartbeat worker that sends heartbeats periodically.
 
 import os
 import pathlib
+import time
 
 from pymavlink import mavutil
 
@@ -51,7 +52,6 @@ def heartbeat_receiver_worker(
         local_logger.error("Failed to create HeartbeatReceiver")
         return
     local_logger.info("HeartbeatReceiver created successfully")
-    import time
 
     while not worker_ctrl.is_exit_requested():
         current_state = heartbeat_rcv.run()

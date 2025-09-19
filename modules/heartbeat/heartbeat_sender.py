@@ -23,6 +23,10 @@ class HeartbeatSender:
         connection: mavutil.mavfile,
         logger: object | None = None,
     ) -> tuple[bool, "HeartbeatSender"]:
+        """
+        Create a new HeartbeatSender instance with the given connection and logger.
+        Returns a tuple (success, HeartbeatSender instance).
+        """
         instance = cls(cls.__private_key, connection, logger)
         return True, instance
 
@@ -32,11 +36,17 @@ class HeartbeatSender:
         connection: mavutil.mavfile,
         logger: object | None = None,
     ) -> None:
+        """
+        Initialize the HeartbeatSender instance.
+        """
         assert key is HeartbeatSender.__private_key, "Use create() method"
         self.connection = connection
         self.logger = logger
 
     def run(self) -> None:
+        """
+        Run the heartbeat sender loop.
+        """
         if self.logger:
             self.logger.info("Sending heartbeat", True)
         self.connection.mav.heartbeat_send(

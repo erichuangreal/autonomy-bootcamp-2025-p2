@@ -23,6 +23,10 @@ class HeartbeatReceiver:
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
     ) -> tuple[bool, "HeartbeatReceiver"]:
+        """
+        Create a new HeartbeatReceiver instance with the given connection and logger.
+        Returns a tuple (success, HeartbeatReceiver instance).
+        """
         instance = cls(cls.__private_key, connection, local_logger)
         local_logger.info("HeartbeatReceiver created successfully")
         return True, instance
@@ -33,6 +37,9 @@ class HeartbeatReceiver:
         connection: mavutil.mavfile,
         local_logger: logger.Logger,
     ) -> None:
+        """
+        Initialize the HeartbeatReceiver instance.
+        """
         assert key is HeartbeatReceiver.__private_key, "Use create() method"
         self.connection = connection
         self.logger = local_logger
@@ -44,6 +51,9 @@ class HeartbeatReceiver:
         )
 
     def run(self) -> str:
+        """
+        Run the heartbeat receiver and return the current state as a string.
+        """
         msg = self.connection.recv_match(type="HEARTBEAT", blocking=False, timeout=0.5)
         if msg is not None:
             self.logger.info(f"Received HEARTBEAT message: {msg}")
