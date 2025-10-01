@@ -8,6 +8,8 @@ from pymavlink import mavutil
 
 from ..common.modules.logger import logger
 
+TELEMETRY_TIMEOUT = 1.0
+
 
 class TelemetryData:  # pylint: disable=too-many-instance-attributes
     """
@@ -79,8 +81,7 @@ class Telemetry:
         local_logger: logger.Logger,
     ) -> tuple[bool, "Telemetry"]:
         """
-        Create a new Telemetry instance with the given connection and logger.
-        Returns a tuple (success, Telemetry instance).
+        Falliable create (instantiation) method to create a Telemetry object.
         """
         telemetry_instance = cls(
             cls.__private_key,
@@ -102,12 +103,12 @@ class Telemetry:
         assert key is Telemetry.__private_key, "Use create() method"
         self.connection = connection
         self.logger = local_logger
-        self.timeout = 1.0
+        self.timeout = TELEMETRY_TIMEOUT
 
     def run(self) -> TelemetryData | None:
         """
         Collect and return the latest telemetry data from the MAVLink connection.
-        Returns None if data is not available within the timeout.
+        Returns TelemetryData if both attitude and position are received within timeout, else None.
         """
         start_time = time.time()
         attitude_msg = None
@@ -146,7 +147,6 @@ class Telemetry:
                 )
                 self.logger.info(f"Created TelemetryData: {telemetry_data}")
                 return telemetry_data
-            time.sleep(0.01)
         # Timeout occurred
         if attitude_msg is None and position_msg is None:
             self.logger.error(

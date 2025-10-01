@@ -75,8 +75,7 @@ def read_queue(
     Read and print the output queue.
     """
     while not controller.is_exit_requested():
-        if not command_output_queue.queue.empty():
-            main_logger.info(command_output_queue.queue.get())
+        main_logger.info(command_output_queue.queue.get())
 
 
 def put_queue(

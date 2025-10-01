@@ -13,6 +13,8 @@ from utilities.workers import worker_controller
 from . import heartbeat_receiver
 from ..common.modules.logger import logger
 
+HEARTBEAT_PERIOD = 1.0  # seconds
+
 
 # =================================================================================================
 #                            ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
@@ -47,17 +49,19 @@ def heartbeat_receiver_worker(
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
     # Instantiate class object (heartbeat_receiver.HeartbeatReceiver)
-    result, heartbeat_rcv = heartbeat_receiver.HeartbeatReceiver.create(connection, local_logger)
-    if not result or heartbeat_rcv is None:
+    result, heartbeat_receiver_instance = heartbeat_receiver.HeartbeatReceiver.create(
+        connection, local_logger
+    )
+    if not result or heartbeat_receiver_instance is None:
         local_logger.error("Failed to create HeartbeatReceiver")
         return
     local_logger.info("HeartbeatReceiver created successfully")
 
     while not worker_ctrl.is_exit_requested():
-        current_state = heartbeat_rcv.run()
+        current_state = heartbeat_receiver_instance.run()
         report_queue.queue.put(current_state)
         local_logger.info(f"Reported state: {current_state}")
-        time.sleep(1.0)
+        time.sleep(HEARTBEAT_PERIOD)
 
 
 # =================================================================================================

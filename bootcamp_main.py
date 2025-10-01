@@ -43,6 +43,9 @@ COMMAND_WORKERS = 1
 # Any other constants
 MAIN_LOOP_DURATION = 100
 MAIN_LOOP_SLEEP = 0.1
+HEARTBEAT_PERIOD = 1.0
+HEIGHT_TOLERANCE = 5.0
+ANGLE_TOLERANCE = 10.0
 # =================================================================================================
 #                            ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
 # =================================================================================================
@@ -96,12 +99,15 @@ def main() -> int:
     result, heartbeat_sender_properties = worker_manager.WorkerProperties.create(
         count=HEARTBEAT_SENDER_WORKERS,
         target=heartbeat_sender_worker.heartbeat_sender_worker,
-        work_arguments=(connection, 1.0),  # connection, heartbeat_period
+        work_arguments=(connection, HEARTBEAT_PERIOD),  # connection, heartbeat_period
         input_queues=[],
         output_queues=[],
         controller=controller,
         local_logger=main_logger,
     )
+    if not result:
+        print("Failed to create Heartbeat Sender worker properties")
+        return -1
 
     # Heartbeat receiver - takes (connection, report_queue)
     result, heartbeat_receiver_properties = worker_manager.WorkerProperties.create(
@@ -113,6 +119,9 @@ def main() -> int:
         controller=controller,
         local_logger=main_logger,
     )
+    if not result:
+        print("Failed to create Heartbeat Receiver worker properties")
+        return -1
 
     # Telemetry - takes (connection, telemetry_queue, worker_ctrl)
     result, telemetry_properties = worker_manager.WorkerProperties.create(
@@ -124,6 +133,9 @@ def main() -> int:
         controller=controller,
         local_logger=main_logger,
     )
+    if not result:
+        print("Failed to create Telemetry worker properties")
+        return -1
 
     # Command - takes (connection, target, telemetry_queue, command_queue, worker_ctrl, height_tolerance, angle_tolerance)
     target_position = command.Position(x=0.0, y=0.0, z=100.0)  # Example target position
@@ -133,17 +145,20 @@ def main() -> int:
         work_arguments=(
             connection,
             target_position,
-            5.0,
-            10.0,
+            HEIGHT_TOLERANCE,
+            ANGLE_TOLERANCE,
         ),  # connection, target, height_tolerance, angle_tolerance
         input_queues=[telemetry_report_queue],
         output_queues=[command_request_queue],
         controller=controller,
         local_logger=main_logger,
     )
+    if not result:
+        print("Failed to create Command worker properties")
+        return -1
 
     # Create the workers (processes) and obtain their managers
-    worker_managers = []
+    worker_managers: list[worker_manager.WorkerManager] = []
 
     result, heartbeat_sender_manager = worker_manager.WorkerManager.create(
         worker_properties=heartbeat_sender_properties,

@@ -46,8 +46,14 @@ def start_drone() -> None:
 # =================================================================================================
 def stop() -> None:
     """
-    Stop the workers.
+    Stop the workers and DRAIn the queue.
     """
+    # Drain the controller's queue before exit
+    while not controller.queue.empty():
+        try:
+            controller.queue.get_nowait()
+        except (TypeError, AttributeError):
+            break
     controller.request_exit()
 
 
@@ -94,7 +100,7 @@ def main() -> int:
 
     # Just set a timer to stop the worker after a while, since the worker infinite loops
 
-    threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS + 3, stop).start()
+    threading.Timer(HEARTBEAT_PERIOD * NUM_TRIALS, stop).start()
 
     main_logger.info("Starting Heartbeat Worker")
     heartbeat_sender_worker.heartbeat_sender_worker(

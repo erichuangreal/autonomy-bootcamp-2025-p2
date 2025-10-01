@@ -57,11 +57,10 @@ def command_worker(
     # Instantiate class object (command.Command)
     command_object = command.Command.create(connection, target, local_logger)
     while not controller.is_exit_requested():
-        if not command_input_queue.queue.empty():
-            path = command_input_queue.queue.get()
-            run_command = command_object.run(target, path)
-            if run_command:
-                command_output_queue.queue.put(run_command)
+        path = command_input_queue.queue.get()
+        run_command = command_object.run(target, path)
+        if run_command:
+            command_output_queue.queue.put(run_command)
 
 
 # =================================================================================================

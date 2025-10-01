@@ -70,9 +70,8 @@ def read_queue(
     Read and print the output queue.
     """
     while not worker_ctrl.is_exit_requested():
-        if not report_queue.queue.empty():
-            status = report_queue.queue.get()
-            main_logger.info(f"Worker reported status: {status}")
+        status = report_queue.queue.get()
+        main_logger.info(f"Worker reported status: {status}")
 
 
 # =================================================================================================

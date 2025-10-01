@@ -38,11 +38,17 @@ class Command:  # pylint: disable=too-many-instance-attributes
         connection: mavutil.mavfile,
         target: Position,
         local_logger: logger.Logger,
-    ) -> object:
+    ) -> "Command | None":
         """
         Falliable create (instantiation) method to create a Command object.
+        Returns Command instance if successful, None otherwise.
         """
-        return Command(cls.__private_key, connection, target, local_logger)
+        try:
+            return Command(cls.__private_key, connection, target, local_logger)
+        except (TypeError, AttributeError) as e:
+            if local_logger:
+                local_logger.error(f"Failed to create Command: {e}")
+            return None
 
     def __init__(
         self,
@@ -109,12 +115,16 @@ class Command:  # pylint: disable=too-many-instance-attributes
             )
             return f"CHANGE_ALTITUDE: {amount_to_move}"
 
+        # Calculate the angle from current position to target position
         target_angle = math.atan2(target.y - path.y, target.x - path.x)
+        # Compute the difference between target angle and current yaw
         angle_difference = target_angle - path.yaw
+        # Normalize angle_difference to range [-pi, pi] to correct yaw direction
         if angle_difference > (math.pi):
             angle_difference = -1 * ((2 * math.pi) - angle_difference)
         elif angle_difference < -1 * (math.pi):
             angle_difference = -1 * ((-2 * math.pi) - angle_difference)
+        # Convert the angle difference from radians to degrees
         angle_difference_deg = math.degrees(angle_difference)
         if angle_difference_deg > 5 or angle_difference_deg < -5:
             # rotate the drone

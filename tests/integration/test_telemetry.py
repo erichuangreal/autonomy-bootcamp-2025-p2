@@ -51,22 +51,28 @@ def stop(
     worker_ctrl: worker_controller.WorkerController,  # Add any necessary arguments
 ) -> None:
     """
-    Stop the workers.
+    Stop the workers and drain the queue.
     """
+    # Drain the worker controller's queue before exit
+    if hasattr(worker_ctrl, "queue"):
+        while not worker_ctrl.queue.empty():
+            try:
+                worker_ctrl.queue.get_nowait()
+            except (TypeError, AttributeError):
+                break
     worker_ctrl.request_exit()  # Add logic to stop your worker
 
 
 def read_queue(
-    telemetry_queue: mp.Queue,  # Add any necessary arguments
+    telemetry_queue: mp.Queue,
     main_logger: logger.Logger,
+    controller: worker_controller.WorkerController,
 ) -> None:
     """
     Read and print the output queue.
     """
-
-    while True:
+    while not controller.is_exit_requested():
         try:
-            # Get TelemetryData from worker with timeout
             telemetry_data = telemetry_queue.get(timeout=1.0)
             main_logger.info(f"Received TelemetryData: {telemetry_data}")
         except (EOFError, KeyboardInterrupt, TimeoutError, queue.Empty):

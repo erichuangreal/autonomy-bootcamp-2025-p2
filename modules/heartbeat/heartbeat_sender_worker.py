@@ -45,9 +45,6 @@ def heartbeat_sender_worker(
 
     local_logger.info("Logger initialized", True)
 
-    # Wait a moment to ensure the drone is ready
-    time.sleep(3)
-
     # =============================================================================================
     #                          ↓ BOOTCAMPERS MODIFY BELOW THIS COMMENT ↓
     # =============================================================================================
